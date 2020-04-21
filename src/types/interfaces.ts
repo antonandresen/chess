@@ -1,4 +1,4 @@
-import { Color } from './enums';
+import { Color, Piece, BoardState } from './enums';
 
 export interface ISquare {
   id: string;
@@ -10,18 +10,13 @@ export interface ISquare {
 export interface IPiece {
   color: Color;
   imagePath: string;
-  //pos: string;
+  piece: Piece;
+  pos: string;
   //getValidMoves: () => string[];
 }
 
-export interface IPawn extends IPiece {}
-
-export interface IKing extends IPiece {}
-
-export interface IQueen extends IPiece {}
-
-export interface IRook extends IPiece {}
-
-export interface IBishop extends IPiece {}
-
-export interface IKnight extends IPiece {}
+export interface IBoardState {
+  playerTurn: Color;
+  selectedPiece?: IPiece;
+  state: BoardState;
+}

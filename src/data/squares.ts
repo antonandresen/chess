@@ -1,15 +1,6 @@
-import {
-  ISquare,
-  IPiece,
-  IPawn,
-  IKing,
-  IQueen,
-  IRook,
-  IBishop,
-  IKnight,
-} from '../types/interfaces';
+import { ISquare, IPiece, IBoardState } from '../types/interfaces';
 
-import { Color } from '../types/enums';
+import { Color, Piece, BoardState } from '../types/enums';
 
 const BASE_PIECE_PATH = 'chesspieces';
 
@@ -17,148 +8,200 @@ const BASE_PIECE_PATH = 'chesspieces';
 export const piecesInPlayWhite: IPiece[] = [
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-rook`,
-  } as IRook,
+    piece: Piece.Rook,
+    imagePath: `${BASE_PIECE_PATH}/white-rook.svg`,
+    pos: 'A1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-knight`,
-  } as IKnight,
+    piece: Piece.Knight,
+    imagePath: `${BASE_PIECE_PATH}/white-knight.svg`,
+    pos: 'B1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-bishop`,
-  } as IBishop,
+    piece: Piece.Bishop,
+    imagePath: `${BASE_PIECE_PATH}/white-bishop.svg`,
+    pos: 'C1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-queen`,
-  } as IQueen,
+    piece: Piece.King,
+    imagePath: `${BASE_PIECE_PATH}/white-king.svg`,
+    pos: 'D1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-king`,
-  } as IKing,
+    piece: Piece.Queen,
+    imagePath: `${BASE_PIECE_PATH}/white-queen.svg`,
+    pos: 'E1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-bishop`,
-  } as IBishop,
+    piece: Piece.Bishop,
+    imagePath: `${BASE_PIECE_PATH}/white-bishop.svg`,
+    pos: 'F1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-knight`,
-  } as IKnight,
+    piece: Piece.Knight,
+    imagePath: `${BASE_PIECE_PATH}/white-knight.svg`,
+    pos: 'G1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-rook`,
-  } as IRook,
+    piece: Piece.Rook,
+    imagePath: `${BASE_PIECE_PATH}/white-rook.svg`,
+    pos: 'H1',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'A2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'B2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'C2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'D2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'E2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'F2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'G2',
+  } as IPiece,
   {
     color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/white-pawn`,
-  } as IPawn,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/white-pawn.svg`,
+    pos: 'H2',
+  } as IPiece,
 ];
 
 export const piecesInPlayBlack: IPiece[] = [
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-rook`,
-  } as IRook,
+    color: Color.Black,
+    piece: Piece.Rook,
+    imagePath: `${BASE_PIECE_PATH}/black-rook.svg`,
+    pos: 'H8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-knight`,
-  } as IKnight,
+    color: Color.Black,
+    piece: Piece.Knight,
+    imagePath: `${BASE_PIECE_PATH}/black-knight.svg`,
+    pos: 'G8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-bishop`,
-  } as IBishop,
+    color: Color.Black,
+    piece: Piece.Bishop,
+    imagePath: `${BASE_PIECE_PATH}/black-bishop.svg`,
+    pos: 'F8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-queen`,
-  } as IQueen,
+    color: Color.Black,
+    piece: Piece.King,
+    imagePath: `${BASE_PIECE_PATH}/black-king.svg`,
+    pos: 'E8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-king`,
-  } as IKing,
+    color: Color.Black,
+    piece: Piece.Queen,
+    imagePath: `${BASE_PIECE_PATH}/black-queen.svg`,
+    pos: 'D8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-bishop`,
-  } as IBishop,
+    color: Color.Black,
+    piece: Piece.Bishop,
+    imagePath: `${BASE_PIECE_PATH}/black-bishop.svg`,
+    pos: 'C8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-knight`,
-  } as IKnight,
+    color: Color.Black,
+    piece: Piece.Knight,
+    imagePath: `${BASE_PIECE_PATH}/black-knight.svg`,
+    pos: 'B8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-rook`,
-  } as IRook,
+    color: Color.Black,
+    piece: Piece.Rook,
+    imagePath: `${BASE_PIECE_PATH}/black-rook.svg`,
+    pos: 'A8',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'H7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'G7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'F7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'E7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'D7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'C7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'B7',
+  } as IPiece,
   {
-    color: Color.White,
-    imagePath: `${BASE_PIECE_PATH}/black-pawn`,
-  } as IPawn,
+    color: Color.Black,
+    piece: Piece.Pawn,
+    imagePath: `${BASE_PIECE_PATH}/black-pawn.svg`,
+    pos: 'A7',
+  } as IPiece,
 ];
-
-// "dynamically" create board based on piecesInPlay
-/*export const board: ISquare[][] = [
-  [
-    {
-      color: Color.Black,
-      id: '8A',
-      occupied: true,
-      piece: { color: Color.Black, imagePath: `${}` } as IRook,
-    } as ISquare,
-  ],
-];*/
 
 const getColorForSquare = (index: number) => {
   const row = Math.floor(index / 8);
@@ -195,5 +238,7 @@ export const defaultBoard = Array.from({ length: 64 }, (_, i) => {
   } as ISquare;
 });
 
-// 0 --> 8A
-// 1 --> 8B
+export const defaultBoardState = {
+  playerTurn: Color.White,
+  state: BoardState.Idle,
+} as IBoardState;
