@@ -96,39 +96,48 @@ const Chessboard: React.FC = () => {
   };
 
   return (
-    <BoardGrid>
-      {board.map((square, i) => {
-        const piece = getPieceForSquare(square.id);
-
-        return square.color === Color.White ? (
-          <WhiteSquare
-            onClick={() =>
-              piece ? pressPiece(square, piece) : pressSquare(square)
-            }
-            key={i}
-          >
-            {piece ? (
-              <img src={piece?.imagePath} alt='chesspiece' />
-            ) : (
-              <p>{square.id}</p>
-            )}
-          </WhiteSquare>
+    <>
+      <h2>
+        {boardState.playerTurn === Color.White ? (
+          <p>White players turn</p>
         ) : (
-          <BlackSquare
-            onClick={() =>
-              piece ? pressPiece(square, piece) : pressSquare(square)
-            }
-            key={i}
-          >
-            {piece ? (
-              <img src={piece?.imagePath} alt='chesspiece' />
-            ) : (
-              <p>{square.id}</p>
-            )}
-          </BlackSquare>
-        );
-      })}
-    </BoardGrid>
+          <p>Black players turn</p>
+        )}
+      </h2>
+      <BoardGrid>
+        {board.map((square, i) => {
+          const piece = getPieceForSquare(square.id);
+
+          return square.color === Color.White ? (
+            <WhiteSquare
+              onClick={() =>
+                piece ? pressPiece(square, piece) : pressSquare(square)
+              }
+              key={i}
+            >
+              {piece ? (
+                <img src={piece?.imagePath} alt='chesspiece' />
+              ) : (
+                <p>{square.id}</p>
+              )}
+            </WhiteSquare>
+          ) : (
+            <BlackSquare
+              onClick={() =>
+                piece ? pressPiece(square, piece) : pressSquare(square)
+              }
+              key={i}
+            >
+              {piece ? (
+                <img src={piece?.imagePath} alt='chesspiece' />
+              ) : (
+                <p>{square.id}</p>
+              )}
+            </BlackSquare>
+          );
+        })}
+      </BoardGrid>
+    </>
   );
 };
 
