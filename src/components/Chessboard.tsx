@@ -27,6 +27,7 @@ const Chessboard: React.FC = () => {
   const pressPiece = (square: ISquare, piece: IPiece) => {
     switch (boardState.state) {
       case BoardState.Idle:
+        if (boardState.playerTurn !== piece.color) return;
         const newBoardState = {
           playerTurn: boardState.playerTurn,
           state: BoardState.Selected,
@@ -36,6 +37,14 @@ const Chessboard: React.FC = () => {
         console.log('pressPieceIdle', `${square.id}`);
         break;
       case BoardState.Selected:
+        if (boardState.playerTurn === piece.color) {
+          const newBoardState = {
+            playerTurn: boardState.playerTurn,
+            state: BoardState.Selected,
+            selectedPiece: piece,
+          } as IBoardState;
+          setBoardState(newBoardState);
+        }
         console.log('pressPieceSelected', `${square.id}`);
         break;
       default:
