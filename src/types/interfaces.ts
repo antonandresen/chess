@@ -19,4 +19,5 @@ export interface IBoardState {
   playerTurn: Color;
   selectedPiece?: IPiece;
   state: BoardState;
+  availableMoves?: string[];
 }

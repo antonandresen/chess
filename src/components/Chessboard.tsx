@@ -32,6 +32,7 @@ const Chessboard: React.FC = () => {
           playerTurn: boardState.playerTurn,
           state: BoardState.Selected,
           selectedPiece: piece,
+          availableMoves: getMovesForPiece(piece),
         } as IBoardState;
         setBoardState(newBoardState);
         console.log('pressPieceIdle', `${square.id}`);
@@ -42,6 +43,7 @@ const Chessboard: React.FC = () => {
             playerTurn: boardState.playerTurn,
             state: BoardState.Selected,
             selectedPiece: piece,
+            availableMoves: getMovesForPiece(piece),
           } as IBoardState;
           setBoardState(newBoardState);
         }
@@ -59,6 +61,9 @@ const Chessboard: React.FC = () => {
         console.log('pressSquareIdle', `${square.id}`);
         break;
       case BoardState.Selected:
+        console.log('available moves: ', boardState.availableMoves);
+        console.log('move: ', square.id);
+        if (!boardState.availableMoves?.includes(square.id)) return;
         movePiece(boardState.selectedPiece!, square.id);
         const newBoardState = {
           playerTurn:
@@ -93,6 +98,11 @@ const Chessboard: React.FC = () => {
       bp.push(piece);
       setBlackPieces(bp);
     }
+  };
+
+  const getMovesForPiece = (piece: IPiece) => {
+    //TODO: Get actual moves for every piece.
+    return ['D5', 'E5', 'F5', 'G5', 'H5'];
   };
 
   return (
